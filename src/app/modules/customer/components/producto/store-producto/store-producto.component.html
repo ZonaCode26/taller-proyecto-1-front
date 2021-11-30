@@ -41,19 +41,20 @@
         <div class="row">
 
 
-        <div class=""  *ngFor="let item of products">
-            <div class="col-md-3"  >
+
+            <div class="col-md-3"  *ngFor="let producto of products" >
                 <div id="product-card">
                     <div id="product-front">
                         <div class="shadow"></div>
-                        <img src="assets/img/publicidad1.jpg" alt="" width="100%"/>
+                        <img src="{{producto.imagen}}" alt="" width="100%"/>
                         <div class="image_overlay"></div>
                         <div id="view_details">View details</div>
                         <div class="stats">        	
                             <div class="stats-container">
-                                <span class="product_price">$39</span>
-                                <span class="product_name">Adidas Originals</span>    
-                                <p>Men's running shirt</p>                                            
+                                <span class="product_price">{{producto.precio}}
+                                </span>
+                                <span class="product_name">{{producto.nombre}}</span>    
+                                <p>{{producto.descripcion}}</p>                                            
                                 
                                 <div class="product-options">
                                 <strong>SIZES</strong>
@@ -73,7 +74,6 @@
 
             </div>
 
-        </div>
 
       
       
