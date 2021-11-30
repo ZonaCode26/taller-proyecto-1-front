@@ -1,0 +1,86 @@
+<app-customer-header></app-customer-header>
+
+    <section class="container-fluid section-default">
+        <nav class="navbar navbar-light navbar-top"  style="padding-right: 0">
+          <div class="">
+
+          
+            <button  type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <i class="bi bi-filter-right"> </i></button>
+
+           
+          </div>
+          <div style="display: flex;">
+            <select class="form-select" aria-label="Default select example" style="margin-right: 10px;">
+                <option selected>Ordenar</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+
+            <select class="form-select" aria-label="Default select example" style="margin-right: 10px;">
+                <option selected>Mostrar</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              
+            <a class="navbar-brand" href="#">
+              <i class="bi bi-grid-3x3-gap"> </i>
+            </a>
+            <a class="navbar-brand" href="#">
+              <i class="bi bi-list-ul"> </i>
+            </a>
+          </div>
+        </nav>
+    
+    </section>
+    
+    <div class="table-grid-ecommerce">
+
+        <div class="row">
+
+
+        <div class=""  *ngFor="let item of products">
+            <div class="col-md-3"  >
+                <div id="product-card">
+                    <div id="product-front">
+                        <div class="shadow"></div>
+                        <img src="assets/img/publicidad1.jpg" alt="" width="100%"/>
+                        <div class="image_overlay"></div>
+                        <div id="view_details">View details</div>
+                        <div class="stats">        	
+                            <div class="stats-container">
+                                <span class="product_price">$39</span>
+                                <span class="product_name">Adidas Originals</span>    
+                                <p>Men's running shirt</p>                                            
+                                
+                                <div class="product-options">
+                                <strong>SIZES</strong>
+                                <span>XS, S, M, L, XL, XXL</span>
+                                <strong>COLORS</strong>
+                                <div class="colors">
+                                    <div class="c-blue"><span></span></div>
+                                    <div class="c-red"><span></span></div>
+                                    <div class="c-white"><span></span></div>
+                                    <div class="c-green"><span></span></div>
+                                </div>
+                            </div>                       
+                            </div>                         
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+      
+      
+        </div>
+
+    </div>
+       
+
+    
+

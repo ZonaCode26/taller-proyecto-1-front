@@ -1,0 +1,100 @@
+
+<div class="container-fluid">
+    
+
+    <section class="section-default">
+      <nav class="navbar navbar-light navbar-top"  style="padding-right: 0">
+        <div class="">
+          <a class="navbar-brand" href="#">
+            <i class="bi bi-geo-alt"> Go Read</i>          
+          </a>
+        </div>
+        <div>
+          <a class="navbar-brand" href="#">
+            <i class="bi bi-emoji-heart-eyes"> Favorite</i>
+          </a>
+          <a class="navbar-brand" href="#">
+            <i class="bi bi-handbag"> My List</i>
+          </a>
+          <a class="navbar-brand" href="#">
+            <i class="bi bi-person"> My Account</i>
+          </a>
+        </div>
+      </nav>
+    </section>
+
+    <section class="section-default">
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="navbar-fluid">
+          <button 
+          class="navbar-toggler" type="button"             
+          data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"                        
+            >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <img src="assets/img/logo.png" alt="" width="300px" >
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="store"> Store</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="store"> Reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="store"> Contact us</a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="d-flex">
+            <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary sm" type="submit">Search</button> -->
+
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping-span"><i class="bi bi-search"></i> </span>
+              <input type="text" class="form-control input-search" placeholder="Buscar libro" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
+
+          </form>
+
+        </div>
+      </nav>
+
+    </section>
+    <section>
+<!--       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Button with data-bs-target
+      </button>
+ -->      
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+          <div class="dropdown mt-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+              Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
