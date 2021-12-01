@@ -25,8 +25,23 @@ export class LoginService {
     'password':  `${encodeURIComponent(password)}`}  
 
     //const body=JSON.stringify( this.user);
-    return this.http.post<any>(this.url, bodyJson,{'headers':headers});      
+    return this.http.post<any>(this.url+'/client', bodyJson,{'headers':headers});      
   }
+
+  loginProvider(usuario:string,password:string){
+    const headers = { 'content-type': 'application/json'}  
+    /*
+    const bodyJson = { 'username':  `${encodeURIComponent(usuario)}`,
+    'password':  `${encodeURIComponent(password)}`}  
+*/
+    const bodyJson = { 'username':  usuario,
+    'password':  `${encodeURIComponent(password)}`}  
+
+    //const body=JSON.stringify( this.user);
+    return this.http.post<any>(this.url+'/provider', bodyJson,{'headers':headers});      
+  }
+
+
 
   estaLogueado(){
     let token = sessionStorage.getItem(environment.TOKEN_NAME);

@@ -25,7 +25,8 @@ export function tokenGetter() {
       config: {
         headerName:"Authorization",
         tokenGetter: tokenGetter,
-        allowedDomains: ["http://18.206.89.84:8080"],
+        allowedDomains: ["http://localhost:8080"],
+        //allowedDomains: ["http://18.206.89.84:8080"],
 /*        disallowedRoutes: ["http://0d32-2800-200-e430-191-19-2ade-59c-5203.ngrok.io/authenticate",
                           "http://0d32-2800-200-e430-191-19-2ade-59c-5203.ngrok.io/authenticate/client",
                           "http://0d32-2800-200-e430-191-19-2ade-59c-5203.ngrok.io/authenticate/provider"],*/
