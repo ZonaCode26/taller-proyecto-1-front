@@ -1,7 +1,7 @@
 import { Producto } from './../../../../../shared/models/producto';
 import { ProductoService } from './../../../../../core/services/producto.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -14,7 +14,7 @@ export class StoreProductoComponent implements OnInit {
   products: Producto[] = [];  
   dtTrigger: Subject<any> = new Subject<any>();
   
-  constructor(private rutaActiva: ActivatedRoute,private service: ProductoService) { }
+  constructor(private rutaActiva: ActivatedRoute,private service: ProductoService, private router: Router) { }
 
   ngOnInit(): void {
     this.service.listar().subscribe(data=>{
@@ -35,6 +35,11 @@ export class StoreProductoComponent implements OnInit {
         console.log("entro a ver: "+ this.request.orderby );
        
       });
+  }
+
+  verDetalles(id: number){
+    console.log("Se clickeó", id);
+    this.router.navigate([`customer/products/detail/${id}`]);
   }
 
 }

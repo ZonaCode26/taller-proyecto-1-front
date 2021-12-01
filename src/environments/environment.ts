@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  HOST:'http://0d32-2800-200-e430-191-19-2ade-59c-5203.ngrok.io',
+  HOST:'http://18.206.89.84:8080',
   TOKEN_NAME:'token'
 
 };
