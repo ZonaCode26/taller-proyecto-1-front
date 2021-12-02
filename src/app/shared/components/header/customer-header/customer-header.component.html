@@ -8,7 +8,18 @@
           <a class="navbar-brand" href="#">
             <i class="bi bi-geo-alt"> Go Read</i>          
           </a>
+
         </div>
+        <form class="d-flex">
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary sm" type="submit">Search</button> -->
+
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping-span" (click)="clickBuscarProducto()" ><i class="bi bi-search"></i> </span>
+            <input type="text" class="form-control input-search" placeholder="Buscar producto" aria-label="Username" aria-describedby="addon-wrapping">
+          </div>
+
+        </form>
         <div>
           <a class="navbar-brand" href="#">
             <i class="bi bi-emoji-heart-eyes"> Favorite</i>
@@ -59,7 +70,7 @@
 
             <div class="input-group flex-nowrap">
               <span class="input-group-text" id="addon-wrapping-span"><i class="bi bi-search"></i> </span>
-              <input type="text" class="form-control input-search" placeholder="Buscar libro" aria-label="Username" aria-describedby="addon-wrapping">
+              <input type="text" class="form-control input-search" placeholder="Buscar producto" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
 
           </form>

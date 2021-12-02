@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  forgotPass(){
+    this.router.navigate([`security/forgot-password`]);
+  }
+
   iniciarSesion(){
     /*this.loginService.login(this.usuario,this.clave).pipe(
       catchError(this.handleError('searchHeroes', [])) // then handle the error

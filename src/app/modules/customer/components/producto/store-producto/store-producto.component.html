@@ -1,34 +1,75 @@
-<app-customer-header></app-customer-header>
+
+
+
+ <!-- <app-customer-header></app-customer-header>  -->
+
+ <section class="container-fluid section-default">
+  <nav class="navbar navbar-light navbar-top"  style="padding-right: 0">
+    <div class="">
+<!-- 
+    
+      <button  type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <i class="bi bi-filter-right"> </i></button> -->
+
+     
+    </div>
+    <form >
+      <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-primary sm" type="submit">Search</button> -->
+
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping-span" (click)="clickBuscarProducto(nombrebuscar.value)" ><i class="bi bi-search"></i> </span>
+        <input type="text" #nombrebuscar class="form-control input-search" placeholder="Buscar producto" aria-label="Username" aria-describedby="addon-wrapping">
+      </div>
+
+    </form>
+
+    <div style="display: flex;">
+      
+        <a class="navbar-brand" [routerLink]="['/customer/carrito']" style="width: 50px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+          </svg>
+        </a>        
+        
+        <a class="navbar-brand"  [routerLink]="['/customer/carrito']" style="margin-left: 30px;">
+          <svg xmlns="http://www.w3.org/2000/svg"  width="36" height="36"  fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
+        </a>
+    </div>
+  </nav>
+
+</section>
+
 
     <section class="container-fluid section-default">
         <nav class="navbar navbar-light navbar-top"  style="padding-right: 0">
           <div class="">
-
           
-            <button  type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <i class="bi bi-filter-right"> </i></button>
+            <!-- <button  type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <i class="bi bi-filter-right"> </i></button> -->
 
            
           </div>
           <div style="display: flex;">
-            <select class="form-select" aria-label="Default select example" style="margin-right: 10px;">
+            <select class="form-select" #ordenamiento aria-label="Default select example" style="margin-right: 10px;" (change)='onOptionsSelectedOrd(ordenamiento.value)'>
                 <option selected>Ordenar</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="desc">Descendente</option>
+                <option value="asc">Ascendente</option>
               </select>
 
-            <select class="form-select" aria-label="Default select example" style="margin-right: 10px;">
+            <select class="form-select" #paginacion aria-label="Default select example" style="margin-right: 10px;"  (change)='onOptionsSelectedPag(paginacion.value)' >
                 <option selected>Mostrar</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
               </select>
               
-            <a class="navbar-brand" href="#">
+            <!-- <a class="navbar-brand" href="#">
               <i class="bi bi-grid-3x3-gap"> </i>
-            </a>
-            <a class="navbar-brand" href="#">
+            </a> -->
+            <a class="navbar-brand" >
               <i class="bi bi-list-ul"> </i>
             </a>
           </div>
@@ -40,13 +81,13 @@
 
         <div class="row">
 
-
-
             <div class="col-md-3"  *ngFor="let producto of products" >
                 <div id="product-card">
                     <div id="product-front">
                         <div class="shadow"></div>
-                        <img src="{{producto.imagen}}" alt="" width="100%"/>
+                        <img src="{{producto.imagen}}" alt="" width="100%" height="200px"/>
+                        <!-- <div class="image_overlay"></div>
+                        <div id="view_details" (click)="verDetalles(producto.id)">View details</div> -->
                         <div class="image_overlay"></div>
                         <div id="view_details" (click)="verDetalles(producto.id)">View details</div>
                         <div class="stats">        	
@@ -54,10 +95,14 @@
                                 <span class="product_price">{{producto.precio}}
                                 </span>
                                 <span class="product_name">{{producto.nombre}}</span>    
-                                <p>{{producto.descripcion}}</p>                                            
+                                <!-- <p>{{producto.descripcion}}</p>                                             -->
                                 
-                                <div class="product-options">
-                                <strong>SIZES</strong>
+
+                              <div class="product-options">
+                                <hr>
+                                <button type="button" (click)="addCart(producto)" class="btn btn-outline-primary">Agregar</button> 
+                                <button class="btn btn-primary" (click)="verDetalles(producto.id)" style="margin-left: 10px;">Ver</button>
+                                <!-- <strong>SIZES</strong>
                                 <span>XS, S, M, L, XL, XXL</span>
                                 <strong>COLORS</strong>
                                 <div class="colors">
@@ -65,22 +110,52 @@
                                     <div class="c-red"><span></span></div>
                                     <div class="c-white"><span></span></div>
                                     <div class="c-green"><span></span></div>
-                                </div>
-                            </div>                       
-                            </div>                         
+                                </div> -->
+                              </div>                       
+                            </div>  
+                                                   
                         </div>
+
                     </div>
                 </div>
 
             </div>
 
 
+            <div class="col-md-12">
+
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  
+                  <li class="page-item"><button class="page-link" (click)="cambiarPagina(-1)">Previous</button></li>
+
+                  <li class="page-item"  *ngFor="let in of paginationArray ;let i = index"><button class="page-link" (click)="cambiarPagina(i)" > {{i+1}} </button></li>
+                  
+                  <li class="page-item"><button class="page-link" (click)="cambiarPagina(-2)">Next</button></li>
+                
+                </ul>
+              </nav>
+      
+            </div>
+
+
       
       
         </div>
+        <br>
+        <br>
+        <br>
+     <div>
 
+     </div>
+      <br>
     </div>
        
+
+
+<!-- 
+    <jw-pagination [products]="products" (changePage)="onChangePage($event)"></jw-pagination> -->
+
 
     
 

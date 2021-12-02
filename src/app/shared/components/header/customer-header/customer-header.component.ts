@@ -12,4 +12,7 @@ export class CustomerHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  clickBuscarProducto(){
+    
+  }
 }

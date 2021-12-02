@@ -1,3 +1,4 @@
+import { CarsProductoComponent } from './components/producto/cars-producto/cars-producto.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,8 @@ const routes: Routes = [
   {path:'',pathMatch:'full', redirectTo:'login'},
   { path:'login',component:LoginComponent },
   { path:'products',component:ProductsComponent },
-  { path:'products/detail/:id', component:DetalleProductoComponent }
+  { path:'products/detail/:id', component:DetalleProductoComponent },
+  { path:'carrito', component:CarsProductoComponent }
 ];
 
 @NgModule({
