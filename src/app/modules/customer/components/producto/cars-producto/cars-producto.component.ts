@@ -1,3 +1,4 @@
+import { LoginService } from './../../../../../core/services/login.service';
 import { MyInformation } from './../../../../../shared/models/my-information';
 import { CotizacionService } from './../../../../../core/services/cotizacion.service';
 import { CarritoItem } from './../../../../../shared/models/store/carrito-item';
@@ -28,7 +29,8 @@ export class CarsProductoComponent implements OnInit {
               private service: ProductoService, 
               private router: Router,
               private carritoService:CarritoService,
-              private cotizacionService:CotizacionService) { }
+              private cotizacionService:CotizacionService,
+              private loginService:LoginService) { }
 
   ngOnInit(): void {
     this.productosCarrito = this.carritoService.obtener();
@@ -45,12 +47,14 @@ export class CarsProductoComponent implements OnInit {
    this.carritoService.quitar(id);
    this.productosCarrito = this.carritoService.obtener();
    this.totalCarrito = this.carritoService.obtenerTotal();
+   this.conteo = this.carritoService.obtenerConteo();
   }
 
   quitarTodoByCotizacion(){
     this.carritoService.quitarAll();
     this.totalCarrito = 0.0;
     this.productosCarrito = [];
+    this.conteo = this.carritoService.obtenerConteo();
   }
 
   crearPedido(){
@@ -129,6 +133,10 @@ imprimirReporte(){
         a.click();
         window.URL.revokeObjectURL(url);
         a.remove();
+  }
+
+  cerrarSesion(){
+    this.loginService.cerrarSesion();
   }
  
 

@@ -34,16 +34,13 @@ export class StoreProductoComponent implements OnInit {
   constructor(private rutaActiva: ActivatedRoute,
               private service: ProductoService, 
               private router: Router,
-              private carritoService:CarritoService
+              private carritoService:CarritoService,
+              private loginService:LoginService
     ) { }
 
   ngOnInit(): void {
     this.usuarioSesion =  JSON.parse(sessionStorage.getItem('user-info'));// (sessionStorage.getItem('user-info') as any) ;
-    console.log("hola mundo inicio");
-    console.log(this.usuarioSesion );
-    console.log(this.usuarioSesion.name );
-    console.log("hola mundo fin");
-
+   
     this.filterRequest = new FilterProducts();
     this.filterRequest.estado = true;
     var filter2 =new FilterBasic();
@@ -87,6 +84,9 @@ export class StoreProductoComponent implements OnInit {
         console.log("entro a ver: "+ this.request.orderby );
        
       });
+   
+
+
   }
 
   verDetalles(id: number){
@@ -156,4 +156,9 @@ addCart(prod:Producto){
 goCarrito(){
   this.router.navigate([`customer/carrito`]);
 }
+
+cerrarSesion(){
+  this.loginService.cerrarSesion();
+}
+
 }

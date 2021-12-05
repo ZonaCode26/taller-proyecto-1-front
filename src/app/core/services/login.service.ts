@@ -51,10 +51,29 @@ export class LoginService {
     let token = sessionStorage.getItem(environment.TOKEN_NAME);
     return token != null;
   }
-
+/*
   cerrarSesion(){
     sessionStorage.clear();
     this.router.navigate(['store']);      
   }
+*/
+
+cerrarSesion(){
+  let token = sessionStorage.getItem(environment.TOKEN_NAME);
+
+  if(token){
+    sessionStorage.clear();
+      this.router.navigate(['customer/login']);
+/*    this.http.get(`${environment.HOST}/tokens/anular/${token}`).subscribe(() => {
+      sessionStorage.clear();
+      this.router.navigate(['login']);
+    });*/
+  }else{
+    sessionStorage.clear();
+   
+    this.router.navigate(['customer/login']);
+  }    
+}
+
 
 }

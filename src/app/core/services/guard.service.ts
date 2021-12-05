@@ -28,6 +28,7 @@ export class GuardService implements CanActivate {
       //verificar si tiene lo necesario para acceder
       return true;
       }else{
+        console.log("proebamdo flujo");
         this.loginService.cerrarSesion();
         return false;  
       }

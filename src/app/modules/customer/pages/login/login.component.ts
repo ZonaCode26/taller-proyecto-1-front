@@ -49,11 +49,12 @@ export class LoginComponent implements OnInit {
       this.loginService.myInformation().subscribe(x=>{
         
         sessionStorage.setItem('user-info', JSON.stringify(x));
-
+        this.router.navigate([`customer/products`]);
       });
 
       let decodecToken = helper.decodeToken(data.token);
-        this.router.navigate(['customer/products']);
+     
+
     },
     error => {
       this.genericError = (error.error as any) ;
@@ -65,5 +66,15 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+  
+cerrarSesion(){
+  this.loginService.cerrarSesion();
+}
+  
+  
+  /*
+  ngAfterViewInit() {
+    (window as any).initialize();
+  }*/
 
 }

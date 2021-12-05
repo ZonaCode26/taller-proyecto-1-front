@@ -1,3 +1,4 @@
+import { LoginService } from './../../../../../core/services/login.service';
 import { CarritoService } from './../../../../../core/services/store/carrito.service';
 import { MyInformation } from './../../../../../shared/models/my-information';
 import { FilterCotizacion } from './../../../../../shared/models/request/filter-cotizacion';
@@ -29,7 +30,8 @@ export class HistorialCotizacionesComponent implements OnInit {
   usuarioSesion:MyInformation= new MyInformation();
 
   constructor(private service: CotizacionService,
-              private carritoService:CarritoService) {
+              private carritoService:CarritoService,
+              private loginService:LoginService) {
    }
 
   ngOnInit(): void {
@@ -138,4 +140,8 @@ imprimirReporte(){
   }
 
 
+  cerrarSesion(){
+    this.loginService.cerrarSesion();
+  }
+  
 }

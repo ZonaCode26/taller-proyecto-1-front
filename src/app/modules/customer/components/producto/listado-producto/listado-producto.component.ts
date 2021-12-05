@@ -1,3 +1,4 @@
+import { LoginService } from './../../../../../core/services/login.service';
 import { ProductoService } from './../../../../../core/services/producto.service';
 import { Producto } from './../../../../../shared/models/producto';
 import { Component,OnDestroy, OnInit } from '@angular/core';
@@ -32,7 +33,8 @@ export class ListadoProductoComponent implements OnDestroy,OnInit {
   columnDefs?: DataTables.ColumnDefsSettings[];
   columns?: DataTables.ColumnSettings[];
 
-  constructor(private service: ProductoService) { }
+  constructor(private service: ProductoService,
+    private loginService:LoginService) { }
 
   ngOnInit(): void {
     /*this.service.listarDataTable().subscribe(data=>{
@@ -162,5 +164,10 @@ actualizarDatos(data:Producto){
       }  
     });
 
+  }
+
+
+  cerrarSesion(){
+    this.loginService.cerrarSesion();
   }
 }

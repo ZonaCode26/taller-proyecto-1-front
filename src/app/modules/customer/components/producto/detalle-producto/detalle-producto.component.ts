@@ -1,3 +1,4 @@
+import { LoginService } from './../../../../../core/services/login.service';
 import { CarritoService } from './../../../../../core/services/store/carrito.service';
 import { MyInformation } from './../../../../../shared/models/my-information';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +22,8 @@ export class DetalleProductoComponent implements OnInit {
   conteo:number;
 
   constructor(private rutaActiva: ActivatedRoute,private service: ProductoService, private router: Router,
-    private carritoService:CarritoService) { }
+    private carritoService:CarritoService,
+    private loginService:LoginService) { }
 
   ngOnInit(): void {
 
@@ -42,4 +44,7 @@ export class DetalleProductoComponent implements OnInit {
 
   }
 
+  cerrarSesion(){
+    this.loginService.cerrarSesion();
+  }
 }
