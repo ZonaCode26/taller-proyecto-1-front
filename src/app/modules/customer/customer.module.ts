@@ -11,6 +11,8 @@ import { StoreProductoComponent } from './components/producto/store-producto/sto
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { CarsProductoComponent } from './components/producto/cars-producto/cars-producto.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { HistorialCotizacionesComponent } from './components/producto/historial-cotizaciones/historial-cotizaciones.component';
 
 
 
@@ -21,7 +23,8 @@ import { CarsProductoComponent } from './components/producto/cars-producto/cars-
     ListadoProductoComponent,
     StoreProductoComponent,
     DetalleProductoComponent,
-    CarsProductoComponent
+    CarsProductoComponent,
+    HistorialCotizacionesComponent
 
   ],
   imports: [
@@ -30,7 +33,8 @@ import { CarsProductoComponent } from './components/producto/cars-producto/cars-
     FormsModule,
     SharedModule,
     DataTablesModule,
-    JwPaginationModule
+    JwPaginationModule,
+    PdfViewerModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

@@ -7,7 +7,10 @@ export class Cotizacion {
     ruc:string;
     estado:boolean;
     fechaRegistro:Date;
-    detalleConsulta:DetalleConsulta
+    detalleConsulta:DetalleConsulta;
+
+    fecha:string;
+    monto:string;
 
 
 

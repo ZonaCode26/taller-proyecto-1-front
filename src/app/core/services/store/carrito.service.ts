@@ -21,12 +21,15 @@ agregar(producto) {
   
     if (!this.existe(producto.id)) {
       this.item.cantidad = 1;
+      this.item.total = this.item.precio;
         this.productos.push(this.item);
         this.guardar();
     }else{
       this.productos.forEach(x=>{
         if(x.id=== producto.id){
+          
           x.cantidad=x.cantidad+1;
+          x.total = x.cantidad *x.precio;
         }
       });
       this.guardar();
@@ -39,6 +42,13 @@ quitar(id) {
         this.productos.splice(indice, 1);
         this.guardar();
     }
+}
+
+quitarAll() {
+ 
+    this.productos=[];
+    this.guardar();
+  
 }
 
 guardar() {
@@ -58,5 +68,14 @@ obtenerConteo() {
     return this.productos.length;
 }
 
+obtenerTotal() {
+
+  var total = 0;
+  this.productos.forEach(x=>{
+    total += x.total;
+  });
+
+  return total;
+}
 
 }

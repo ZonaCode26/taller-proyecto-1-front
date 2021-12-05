@@ -2,13 +2,11 @@
 
 
 
-
-
 <div class="container-fluid">
   <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
           <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-              <a  [routerLink]="['/customer/products']" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <a [routerLink]="['/customer/products']" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                   <span class="fs-5 d-none d-sm-inline">!Cotizar y Comprar es facil!</span>
               </a>
               <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -64,18 +62,36 @@
 
      
     </div>
- <!--    <form >
-     
+    <form >
+<!--      
       <div class="input-group flex-nowrap">
         <span class="input-group-text" id="addon-wrapping-span" (click)="clickBuscarProducto(nombrebuscar.value)" ><i class="bi bi-search"></i> </span>
         <input type="text" #nombrebuscar class="form-control input-search" placeholder="Buscar producto" aria-label="Username" aria-describedby="addon-wrapping">
-      </div>
+      </div> -->
 
-    </form> -->
+    </form>
 
     <div style="display: flex;">
-      <!-- {{usuarioSesion.name}}  -->
+
       <p style="margin-top: 10px;margin-right: 10px;">Bienvenid@ {{usuarioSesion.name}} </p> 
+
+<!-- 
+      <div class="dropdown">
+
+       
+        <a  type="button" id="dropdownMenu2" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="fs-4 bi-table"></i> 
+      </a>
+          
+        <div class="dropdown-menu dropdown-primary">
+          <a class="dropdown-item" href="#"><i class="fab fa-apple-pay"></i>&nbsp;&nbsp;Pay</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-bell-slash"></i>&nbsp;&nbsp;Disable alertss</a>
+          <a class="dropdown-item" href="#"><i class="far fa-envelope"></i>&nbsp;&nbsp;Check mail</a>
+        </div>
+      </div> -->
+      
+
 
       <div class="dropdown pb-4">
         
@@ -105,129 +121,85 @@
             <span class="visually-hidden">unread messages</span>
           </span>
                 
-        </a> 
+        </a>
     </div>
   </nav>
 
 </section>
 
 
-   
-    
-
-
-<div class="row">
+    <section class="container-fluid section-default">
+        
+ 
+ 
+ <div class="row">
   <div class="col-md-12 grid-margin">
     <div class="card">
       <div class="card-body">
         <div class="d-flex justify-content">
          
-<a class="btn btn-primary" [routerLink]="['/customer/carrito']" >Por cotizar</a> <span> </span>
-<a class="btn btn-outline-primary" [routerLink]="['/customer/historial']" style="margin-left: 10px;">Historial de cotizaciones</a>
+<a class="btn btn-outline-primary"  [routerLink]="['/customer/carrito']">Por cotizar</a> <span> </span>
+<a class="btn btn-primary" [routerLink]="['/customer/historial']" style="margin-left: 10px;">Historial de cotizaciones</a>
 
         </div>
 
         <div class="table-responsive">
-
-
+ 
           
-<section class="container">
+    <div class="container">
+      <br>
+      <br>
+<!--
 
-    
-  <div class="row">
-  
-    
-  
-  
-      <div class="col-md-12">
-  
-  
-  
-          <table  class="dataTable cell-border order-column">
-              <thead>
-                <tr>
-                  <th scope="col">N°</th>
-                  <th scope="col">Codigo</th>
-                  <th scope="col">Detalle Producto</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Precio Unitario S/.</th>
-                  <th scope="col">Precio Total S/.</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of productosCarrito">
-                  <th scope="row"></th>
-                  <td>{{item.id}} </td>
-                  <td>{{item.nombre}}</td>
-                  <td>{{item.cantidad}}</td>
-                  <td>{{item.precio}}</td>
-                  <td>{{item.total}}</td>
-                  <td><button type="button" class="btn btn-outline-primary" (click)="quitarCarrito(item.id)">x</button></td>
-                </tr>
-              </tbody>
-          </table>
-  
-  
-  
-  
-      </div>
-  <hr>
-      <div class="row">
-          <div class="col-7">
-  
-          </div>
-          <div class="col-3">
-              <p>  Precio Total S/.   {{totalCarrito}} </p>   
-          </div>
-          <div class="col-2">
-              <button type="button" class="btn btn-outline-primary"  (click)="cotizar()">Crear Cotizacion</button>
-              <br>
-              <br>
-              <button type="button" class="btn btn-outline-primary" (click)="crearPedido()">Crear Pedido</button>
-          </div>
-        </div>
-        <div class="col-12">
-          {{messageError}}
-        </div>
-  
-  </div>
-  
-  
-  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color: #ededed;">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Cotización:</h4>
-      <button type="button" class="close"  aria-label="Close"  (click)="cerraModal()" >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <!-- <pdf-viewer
-      src="https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf"
-      [rotation]="0"
-        [fit-to-page]="true"
-        [original-size]="true"
-        [show-all]="true"
-        style="display: block;"
-    ></pdf-viewer> -->
-  
-    <pdf-viewer [src]="pdfSrc" [rotation]="0"
-    [fit-to-page]="true"
-    [original-size]="true"
-    [show-all]="true"
-    style="display: block;"></pdf-viewer>
-  
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-primary" (click)="imprimirReporte()" >Imprimir</button>
-      <button type="button" class="btn btn-outline-primary" (click)="guardarReporte()" >Guardar</button>
-      <button type="button" class="btn btn-outline-dark" (click)="cerraModal()" >Cerrar</button>
-    </div>
-  
-  </div>
-  </section>
-  
+      <h1>Angular 11 Datatables Example - Tutsmake.com</h1>
+-->
+      <table id="datatableID" datatable="datatable" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="dataTable cell-border order-column" style="width:100%">
+    <!-- 
+      <table id="datatableID" datatable="datatable"  [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="stripe row-border order-column" style="width:100%" > -->
+        <thead>
+          <tr>
+            <th>Estado</th>
+            <th>N° Cotizacion</th>
+            <th>Fecha</th>
+            <th>Cantidad Productos</th>
+            <th>Monto S/.</th>
+            <th>Ver Documento</th>
+            <!-- <th>Foto</th> -->
+            <th>Realizar Pedido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cotizacion of cotizaciones">
+            <td>{{ cotizacion.estado }}</td>
+            <td>{{ cotizacion.id }}</td>
+            <td>{{ cotizacion.fecha }}</td>
+            <td>{{ cotizacion.detalleConsulta.length }}</td>
+            <td>{{ cotizacion.monto }}</td>
+            <td> 
+              <div class="btn-group"><!-- mb-3-->
+                <button class="btn ver d-inline" href="#"  (click)="verDocumento(cotizacion)"  >
+                  <i class="bi bi-file-earmark-pdf"></i>
+                </button>
 
+
+              </div>
+            </td>
+            <!-- <td> <img src="{{ author.foto }}" alt="" width="50px" height="50px"> </td> -->
+            <td> 
+              <div class="btn-group"><!-- mb-3-->
+                <button class="btn ver d-inline" href="#"  (click)="doPedido(cotizacion)"  >
+                  <i class="bi bi-cart-check-fill" style="width: 30px;"></i>
+                </button>
+
+
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+            
       
         </div>
       </div>
@@ -237,12 +209,39 @@
 </div>
 
 
-  
+
+<div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color: #ededed;">
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Cotización:</h4>
+  <button type="button" class="close"  aria-label="Close"  (click)="cerraModal()" >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+<pdf-viewer [src]="pdfSrc" [rotation]="0"
+[fit-to-page]="true"
+[original-size]="true"
+[show-all]="true"
+style="display: block;"></pdf-viewer>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-primary" (click)="imprimirReporte()" >Imprimir</button>
+  <button type="button" class="btn btn-outline-primary" (click)="guardarReporte()" >Guardar</button>
+  <button type="button" class="btn btn-outline-dark" (click)="cerraModal()" >Cerrar</button>
+</div>
+
+</div>
 
   
 
 
 
+    
+    </section>
+    
+  
 
           
         
@@ -268,4 +267,9 @@
 
 
 
-
+ 
+  
+  
+  
+  
+    

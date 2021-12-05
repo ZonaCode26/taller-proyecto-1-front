@@ -4,9 +4,11 @@
 
 export const environment = {
   production: false,
-  HOST:'http://18.206.89.84:8080',
-  //HOST:'http://localhost:8080',
-  TOKEN_NAME:'token'
+  //HOST:'http://18.206.89.84:8080',
+  HOST:'http://localhost:8080',
+  ALLOWD_HOST: 'localhost:8080',
+  TOKEN_NAME:'token',
+  REINTENTOS: 2
 
 };
 

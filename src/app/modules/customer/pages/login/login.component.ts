@@ -44,6 +44,14 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem(environment.TOKEN_NAME,data.token);
       const helper = new JwtHelperService();
 
+
+
+      this.loginService.myInformation().subscribe(x=>{
+        
+        sessionStorage.setItem('user-info', JSON.stringify(x));
+
+      });
+
       let decodecToken = helper.decodeToken(data.token);
         this.router.navigate(['customer/products']);
     },

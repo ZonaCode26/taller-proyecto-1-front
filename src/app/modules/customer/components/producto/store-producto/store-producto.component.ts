@@ -1,3 +1,5 @@
+import { MyInformation } from './../../../../../shared/models/my-information';
+import { LoginService } from './../../../../../core/services/login.service';
 import { CarritoService } from './../../../../../core/services/store/carrito.service';
 import { CarritoItem } from './../../../../../shared/models/store/carrito-item';
 import { FilterProducts } from './../../../../../shared/models/request/filter-products';
@@ -22,14 +24,25 @@ export class StoreProductoComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>();
   filterRequest:FilterProducts;
   paginationArray: Array<any>;
+  conteo:number;
+
+  usuarioSesion:MyInformation= new MyInformation();
 
 //  workCarrito:Carrito;
   // pageOfItems: Array<any>;
 
-  constructor(private rutaActiva: ActivatedRoute,private service: ProductoService, private router: Router,private carritoService:CarritoService
+  constructor(private rutaActiva: ActivatedRoute,
+              private service: ProductoService, 
+              private router: Router,
+              private carritoService:CarritoService
     ) { }
 
   ngOnInit(): void {
+    this.usuarioSesion =  JSON.parse(sessionStorage.getItem('user-info'));// (sessionStorage.getItem('user-info') as any) ;
+    console.log("hola mundo inicio");
+    console.log(this.usuarioSesion );
+    console.log(this.usuarioSesion.name );
+    console.log("hola mundo fin");
 
     this.filterRequest = new FilterProducts();
     this.filterRequest.estado = true;
@@ -52,7 +65,7 @@ export class StoreProductoComponent implements OnInit {
       this.paginationArray = Array( this.dataProd.totalPages);
       this.dtTrigger.next();
     });
-    
+    this.conteo = this.carritoService.obtenerConteo();
 
 /*
     this.service.listar().subscribe(data=>{
@@ -137,7 +150,7 @@ clickBuscarProducto(value:string){
 
 addCart(prod:Producto){
   this.carritoService.agregar(prod);
-
+  this.conteo = this.carritoService.obtenerConteo();
 }
 
 goCarrito(){

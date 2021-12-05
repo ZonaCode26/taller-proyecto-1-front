@@ -1,3 +1,4 @@
+import { MyInformation } from './../../shared/models/my-information';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -41,6 +42,9 @@ export class LoginService {
     return this.http.post<any>(this.url+'/provider', bodyJson,{'headers':headers});      
   }
 
+  myInformation(){
+    return  this.http.get<MyInformation>(`${environment.HOST}/authenticate/my-information`);  
+  }
 
 
   estaLogueado(){

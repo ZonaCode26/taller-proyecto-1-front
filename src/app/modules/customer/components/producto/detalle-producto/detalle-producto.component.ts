@@ -1,3 +1,5 @@
+import { CarritoService } from './../../../../../core/services/store/carrito.service';
+import { MyInformation } from './../../../../../shared/models/my-information';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -15,8 +17,11 @@ export class DetalleProductoComponent implements OnInit {
   products: Producto[] = [];  
   dtTrigger: Subject<any> = new Subject<any>();
   productId: number;
+  usuarioSesion:MyInformation = new MyInformation();
+  conteo:number;
 
-  constructor(private rutaActiva: ActivatedRoute,private service: ProductoService, private router: Router) { }
+  constructor(private rutaActiva: ActivatedRoute,private service: ProductoService, private router: Router,
+    private carritoService:CarritoService) { }
 
   ngOnInit(): void {
 
@@ -27,10 +32,14 @@ export class DetalleProductoComponent implements OnInit {
       this.dtTrigger.next();
       console.log("this.products", this.products);
     });
+
+    this.usuarioSesion =  JSON.parse(sessionStorage.getItem('user-info'));
+    this.conteo = this.carritoService.obtenerConteo();
   }
 
   regresar(){
     this.router.navigate(['customer/products']);
+
   }
 
 }

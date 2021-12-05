@@ -1,3 +1,4 @@
+import { HistorialCotizacionesComponent } from './components/producto/historial-cotizaciones/historial-cotizaciones.component';
 import { CarsProductoComponent } from './components/producto/cars-producto/cars-producto.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -10,7 +11,9 @@ const routes: Routes = [
   { path:'login',component:LoginComponent },
   { path:'products',component:ProductsComponent },
   { path:'products/detail/:id', component:DetalleProductoComponent },
-  { path:'carrito', component:CarsProductoComponent }
+  { path:'carrito', component:CarsProductoComponent },
+  { path:'historial', component:HistorialCotizacionesComponent },
+  
 ];
 
 @NgModule({

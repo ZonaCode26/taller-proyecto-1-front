@@ -1,16 +1,94 @@
-<app-customer-header></app-customer-header>
+<!-- <app-customer-header></app-customer-header> -->
+
+<section class="container-fluid section-default">
+    <nav class="navbar navbar-light navbar-top"  style="padding-right: 0">
+      <div class="">
+  
+      <p>!Cotizar y  <br> comprar es Facil!</p>
+      <!-- <button  type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <i class="bi bi-filter-right"> </i></button> 
+ -->
+       
+      </div>
+      <form >
+     
+        <!-- <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping-span" (click)="clickBuscarProducto(nombrebuscar.value)" ><i class="bi bi-search"></i> </span>
+          <input type="text" #nombrebuscar class="form-control input-search" placeholder="Buscar producto" aria-label="Username" aria-describedby="addon-wrapping">
+        </div> -->
+  
+      </form>
+  
+      <div style="display: flex;">
+  
+        <p style="margin-top: 10px;margin-right: 10px;">Bienvenid@ {{usuarioSesion.name}} </p> 
+  
+  <!-- 
+        <div class="dropdown">
+  
+         
+          <a  type="button" id="dropdownMenu2" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fs-4 bi-table"></i> 
+        </a>
+            
+          <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item" href="#"><i class="fab fa-apple-pay"></i>&nbsp;&nbsp;Pay</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-bell-slash"></i>&nbsp;&nbsp;Disable alertss</a>
+            <a class="dropdown-item" href="#"><i class="far fa-envelope"></i>&nbsp;&nbsp;Check mail</a>
+          </div>
+        </div> -->
+        
+  
+  
+        <div class="dropdown pb-4">
+          
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 50px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" style="color: black;">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+            </svg>
+          </a> 
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" [routerLink]="['/customer/datos']">Mis Datos</a></li>
+              <li><a class="dropdown-item"  [routerLink]="['/customer/carrito']">Mis Cotizaciones</a></li>
+              <li><a class="dropdown-item"  [routerLink]="['/customer/historial']">Mis Pedidos</a></li>
+              <li>
+                  <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+      </div> 
+            
+          
+          <a class="navbar-brand"  [routerLink]="['/customer/carrito']" style="margin-left: 30px;">
+            <svg xmlns="http://www.w3.org/2000/svg"  width="36" height="36"  fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger" style="margin-left: -15px;" >
+              {{conteo}}
+              <span class="visually-hidden">unread messages</span>
+            </span>
+                  
+          </a>
+      </div>
+    </nav>
+  
+  </section>
+
+
 <button class="btn btn-danger my-2 md-2" (click)="regresar()">Cerrar</button>
 <div class="card text-center">
 
     <div class="card-body">
-        <img src="{{products['imagen']}}" alt="" width="30%"/>
+        <span> {{products['nombre']}}</span><br>
+        <img src="{{products['imagen']}}" alt="" width="40%" height="300px"/>
     </div>
 
     <div class="card-body">
         <h5 class="card-title">Descripción</h5>
         <span>Nombre: {{products['nombre']}}</span><br>
         <span>Precio: {{products['precio']}}</span><br>
-        <span>Cantidad: {{products['cantidad']}}</span>
+       
     </div>
 
 </div>
