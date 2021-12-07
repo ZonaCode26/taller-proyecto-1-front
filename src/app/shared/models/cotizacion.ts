@@ -11,6 +11,7 @@ export class Cotizacion {
 
     fecha:string;
     monto:string;
+    totalBrutoCotizacion:number;
 
 
 

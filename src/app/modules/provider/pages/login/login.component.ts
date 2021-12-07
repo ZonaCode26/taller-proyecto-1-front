@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       const helper = new JwtHelperService();
 
       let decodecToken = helper.decodeToken(data.token);
-        this.router.navigate(['provider/dashboard']);
+        this.router.navigate(['provider/productos']);
 
     },
     error => {

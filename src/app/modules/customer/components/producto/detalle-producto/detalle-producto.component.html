@@ -5,6 +5,8 @@
       <div class="">
   
       <p>!Cotizar y  <br> comprar es Facil!</p>
+
+      
       <!-- <button  type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <i class="bi bi-filter-right"> </i></button> 
  -->
@@ -76,7 +78,7 @@
   </section>
 
 
-<button class="btn btn-danger my-2 md-2" (click)="regresar()">Cerrar</button>
+<button class="btn btn-danger my-2 md-2" (click)="regresar()" style="margin-left: 10px;">Cerrar</button>
 <div class="card text-center">
 
     <div class="card-body">
@@ -87,7 +89,7 @@
     <div class="card-body">
         <h5 class="card-title">Descripción</h5>
         <span>Nombre: {{products['nombre']}}</span><br>
-        <span>Precio: {{products['precio']}}</span><br>
+        <span>Precio: S/ {{formateaValor(products['precio'])}}</span><br>
        
     </div>
 

@@ -25,7 +25,8 @@ export class HistorialCotizacionesComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject<any>();
   columnDefs?: DataTables.ColumnDefsSettings[];
   columns?: DataTables.ColumnSettings[];
-  
+  datNow:Date = new Date();
+
   conteo:number;
   usuarioSesion:MyInformation= new MyInformation();
 
@@ -48,13 +49,13 @@ export class HistorialCotizacionesComponent implements OnInit {
     });
 
     this.columnDefs =[
-      {targets:0,width:"40px",orderable:false},
-      {targets:1,width:"150px",orderable:false},
-      {targets:2,width:"150px",orderable:false},
-      {targets:3,width:"30px",orderable:false},
-      {targets:4,width:"100px",orderable:false},
-      {targets:5,width:"150px",orderable:false},
-      {targets:6,width:"150px",orderable:false}
+      {targets:0,width:"40px"},
+      {targets:1,width:"150px"},
+      {targets:2,width:"150px"},
+      {targets:3,width:"30px"},
+      {targets:4,width:"100px"},
+      {targets:5,width:"150px"},
+      {targets:6,width:"150px"}
     ];
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -62,7 +63,9 @@ export class HistorialCotizacionesComponent implements OnInit {
       lengthMenu : [5, 10, 25],
       processing: true,
       scrollX: true,
-      columnDefs:this.columnDefs      
+      columnDefs:this.columnDefs  ,
+      order:    [[ 1, "desc" ]],
+      ordering:true
     };
     this.conteo = this.carritoService.obtenerConteo();
 
@@ -143,5 +146,29 @@ imprimirReporte(){
   cerrarSesion(){
     this.loginService.cerrarSesion();
   }
+
+  validarFecha(obj:Cotizacion){
   
+    this.datNow = new Date();
+
+    var da = new Date(obj.fechaRegistro);
+
+
+    da.setDate( da.getDate() + 15 );
+    
+    if(da <= this.datNow){
+      console.log("cumple");
+      return true;
+    }
+    console.log("no cumple");
+    return false;
+    
+  }
+ 
+  
+  formateaValor(valor) {
+    // si no es un número devuelve el valor, o lo convierte a número con 2 decimales
+    return isNaN(valor) ? valor : parseFloat(valor).toFixed(2);
+  }
+
 }
